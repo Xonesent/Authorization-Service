@@ -4,6 +4,7 @@
 Перед тем как перейти к функционалу сервиса по сокращению ссылок, поддерживающий два http запроса:  
 1. Post - сохраняет оригинальный URL в базе и возвращает сокращённый  
 2. Get - принимает сокращённый URL и возвращает оригинальный URL, если он есть в базе  
+
 Пользователю необходимо зарегестрироваться:  
 1. Post - Sign Up - получение логина и хэш пароля в базу  
 2. Post - Sign In - получение jwt токена для аутентификации в сервисе и получения доступа к функционалу на 12 часов  
@@ -19,18 +20,18 @@ Post - Sign Up
 Запрос: curl.exe -X POST localhost:8080/auth/sign-up -H "Content-Type: application/json" -d '{"login" : "Xonesent", "password" : "test"}'  
 Ответ: {"id": 1}  
 
-![Alt text](sign-up.png)  
+![Alt text](https://github.com/Xonesent/Authorization-Service/blob/master/_materials/Images/sign-up.png)  
 
 Post - Sign In  
 Запрос: curl.exe -X POST localhost:8080/auth/sign-in -H "Content-Type: application/json" -d '{"login" : "Xonesent", "password" : "test"}'  
 Ответ: {"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDQwNzg5NjAsImlhdCI6MTcwNDAzNTc2MCwidXNlcl9pZCI6MX0.ypxpk6sNjOpclzsU4BmPBKx9L1YjnfJ_z2eQ1zkrW20"}  
 
-![Alt text](sigh-in.png)  
+![Alt text](https://github.com/Xonesent/Authorization-Service/blob/master/_materials/Images/sign-in.png)  
 
 Post - Send Url - Дальнейший доступ к функционалу предоставляется с помощью Bearer Token  
 Запрос: curl.exe -X POST -H "Content-Type: application/json" -H 'Authorization: Bearer <...>' -d '{"login" : "Xonesent", "password" : "test"}' localhost:8080/auth/sign-in  
 
-![Alt text](bearer.png)  
+![Alt text](https://github.com/Xonesent/Authorization-Service/blob/master/_materials/Images/bearer.png)  
 
 # Что хотелось бы еще сделать  
 - Авторизацию через письмо на почте  
